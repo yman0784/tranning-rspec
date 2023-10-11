@@ -893,3 +893,76 @@ Processing by TasksController#toggle as TURBO_STREAM
 Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 6646)
 
 
+Started GET "/" for ::1 at 2023-10-11 12:08:22 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/projects/index.html.erb:11
+  Rendered projects/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 6475)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 472)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | Allocations: 243)
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 35637)
+Completed 200 OK in 75ms (Views: 53.7ms | ActiveRecord: 1.1ms | Allocations: 43509)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 12:08:26 +0900
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 3.7ms | Allocations: 1236)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 5.6ms | Allocations: 1860)
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 25)
+  Rendered projects/_project.html.erb (Duration: 31.3ms | Allocations: 14294)
+  Rendered projects/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 14701)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 17267)
+Completed 200 OK in 49ms (Views: 35.3ms | ActiveRecord: 2.3ms | Allocations: 22149)
+
+
+Started GET "/project/api" for ::1 at 2023-10-11 12:08:43 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/project/api"):
+  
+Started GET "/project/apis" for ::1 at 2023-10-11 12:08:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/project/apis"):
+  
+Started GET "/projects/2" for ::1 at 2023-10-11 12:08:49 +0900
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 0.7ms | Allocations: 451)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 1.1ms | Allocations: 749)
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 5.6ms | Allocations: 3520)
+  Rendered projects/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3596)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 6204)
+Completed 200 OK in 21ms (Views: 10.2ms | ActiveRecord: 0.7ms | Allocations: 8945)
+
+
