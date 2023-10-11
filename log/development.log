@@ -308,3 +308,588 @@ Content-Transfer-Encoding: 7bit
 </html>
 
 [ActiveJob] [ActionMailer::MailDeliveryJob] [cea292d1-7a93-4c7b-bc58-82f5e1d510f5] Performed ActionMailer::MailDeliveryJob (Job ID: cea292d1-7a93-4c7b-bc58-82f5e1d510f5) from Async(default) in 45.82ms
+Started GET "/" for ::1 at 2023-10-11 10:27:15 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 510)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 436)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 276.5ms | Allocations: 91376)
+Completed 200 OK in 298ms (Views: 279.8ms | ActiveRecord: 0.0ms | Allocations: 96194)
+
+
+Started GET "/projects" for ::1 at 2023-10-11 10:27:20 +0900
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-10-11 10:27:20 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 660)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3123)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 5781)
+Completed 200 OK in 29ms (Views: 12.5ms | ActiveRecord: 0.9ms | Allocations: 16365)
+
+
+Started GET "/" for ::1 at 2023-10-11 10:27:25 +0900
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 71)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 143)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2627)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2895)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-10-11 10:27:29 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 216)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2759)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5421)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 6520)
+
+
+Started POST "/users" for ::1 at 2023-10-11 10:27:49 +0900
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"aaa", "last_name"=>"bbb", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["authentication_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:46:in `block in generate_authentication_token'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "first_name", "last_name", "authentication_token", "location") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-10-11 01:27:49.691413"], ["updated_at", "2023-10-11 01:27:49.691413"], ["first_name", "aaa"], ["last_name", "bbb"], ["authentication_token", "[FILTERED]"], ["location", nil]]
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 925fa008-8e93-48da-a8c3-8b716988a081) to Async(default) with arguments: "UserMailer", "welcome_email", "deliver_now", {:args=>[#<GlobalID:0x00000001144fb8b0 @uri=#<URI::GID gid://projects/User/3>>]}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2023-10-11 01:27:49.713108"], ["last_sign_in_at", "2023-10-11 01:27:49.713108"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", "2023-10-11 01:27:49.713298"], ["id", 3]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects
+Completed 303 See Other in 500ms (ActiveRecord: 4.7ms | Allocations: 22152)
+
+
+Started GET "/projects" for ::1 at 2023-10-11 10:27:49 +0900
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081] Performing ActionMailer::MailDeliveryJob (Job ID: 925fa008-8e93-48da-a8c3-8b716988a081) from Async(default) enqueued at 2023-10-11T01:27:49Z with arguments: "UserMailer", "welcome_email", "deliver_now", {:args=>[#<GlobalID:0x000000011473e6e0 @uri=#<URI::GID gid://projects/User/3>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 1.4ms | Allocations: 161)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081]   Rendered layout layouts/mailer.html.erb (Duration: 2.3ms | Allocations: 410)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081] UserMailer#welcome_email: processed outbound mail in 8.9ms
+Processing by ProjectsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081] Delivered mail 6525fa15b6c5d_5d667a08-4d7@USERnoMacBook-Air.local.mail (35.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081] Date: Wed, 11 Oct 2023 10:27:49 +0900
+From: support@example.com
+To: test@test.com
+Message-ID: <6525fa15b6c5d_5d667a08-4d7@USERnoMacBook-Air.local.mail>
+Subject: Welcome to Projects!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Welcome to Projects</h1>
+
+<p>
+  Hello aaa,
+</p>
+
+<p>
+  Thanks for checking out Projects. Use the email address
+  test@test.com to sign in or reset your password in the future.
+</p>
+</body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [925fa008-8e93-48da-a8c3-8b716988a081] Performed ActionMailer::MailDeliveryJob (Job ID: 925fa008-8e93-48da-a8c3-8b716988a081) from Async(default) in 52.24ms
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/projects/index.html.erb:11
+  Rendered projects/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 2693)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 204)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 5438)
+Completed 200 OK in 60ms (Views: 33.2ms | ActiveRecord: 2.4ms | Allocations: 11091)
+
+
+Started GET "/projects" for ::1 at 2023-10-11 10:28:05 +0900
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/projects/index.html.erb:11
+  Rendered projects/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 701)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 182)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3297)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 4918)
+
+
+Started GET "/projects/new" for ::1 at 2023-10-11 10:28:07 +0900
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 6.0ms | Allocations: 2077)
+  Rendered projects/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2306)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 190)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4900)
+Completed 200 OK in 24ms (Views: 11.2ms | ActiveRecord: 0.8ms | Allocations: 9875)
+
+
+Started POST "/projects" for ::1 at 2023-10-11 10:28:23 +0900
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"name"=>"test-pro", "description"=>"description", "due_on"=>"2023-10-11"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "test-pro"], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "due_on", "created_at", "updated_at", "user_id", "completed") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "test-pro"], ["description", "description"], ["due_on", "2023-10-11"], ["created_at", "2023-10-11 01:28:23.093776"], ["updated_at", "2023-10-11 01:28:23.093776"], ["user_id", 3], ["completed", nil]]
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 32ms (ActiveRecord: 1.6ms | Allocations: 14634)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 10:28:23 +0900
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 15)
+  Rendered projects/_project.html.erb (Duration: 21.1ms | Allocations: 9760)
+  Rendered projects/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 10157)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 12730)
+Completed 200 OK in 32ms (Views: 25.2ms | ActiveRecord: 1.6ms | Allocations: 16206)
+
+
+Started GET "/projects" for ::1 at 2023-10-11 10:28:39 +0900
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/projects/index.html.erb:11
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 779)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 182)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3353)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 0.7ms | Allocations: 4997)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 10:28:43 +0900
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 6.8ms | Allocations: 2975)
+  Rendered projects/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3051)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5616)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 0.9ms | Allocations: 8351)
+
+
+Started GET "/projects/2/tasks/new" for ::1 at 2023-10-11 10:28:44 +0900
+Processing by TasksController#new as HTML
+  Parameters: {"project_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_form.html.erb (Duration: 3.7ms | Allocations: 1493)
+  Rendered tasks/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1723)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 198)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4404)
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 0.8ms | Allocations: 10225)
+
+
+Started POST "/projects/2/tasks" for ::1 at 2023-10-11 10:28:52 +0900
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"test-task", "completed"=>"0"}, "commit"=>"Create Task", "project_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:31:in `block in create'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "project_id", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test-task"], ["project_id", 2], ["completed", 0], ["created_at", "2023-10-11 01:28:52.084510"], ["updated_at", "2023-10-11 01:28:52.084510"]]
+  ↳ app/controllers/tasks_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 18ms (ActiveRecord: 2.4ms | Allocations: 5010)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 10:28:52 +0900
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 1.4ms | Allocations: 717)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 3.2ms | Allocations: 1330)
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 10.0ms | Allocations: 4478)
+  Rendered projects/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4557)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 7130)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.5ms | Allocations: 9882)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:28:55 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"1"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 1], ["updated_at", "2023-10-11 01:28:55.278941"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 0.9ms | Allocations: 472)
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 14019)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:28:56 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"0"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 0], ["updated_at", "2023-10-11 01:28:56.137465"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 0.9ms | Allocations: 452)
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 6655)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:28:56 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"1"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 1], ["updated_at", "2023-10-11 01:28:56.743522"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.3ms | Allocations: 453)
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 6653)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:28:57 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"0"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 0], ["updated_at", "2023-10-11 01:28:57.375918"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 0.9ms | Allocations: 452)
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 6652)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:29:07 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"1"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 1], ["updated_at", "2023-10-11 01:29:07.370139"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.0ms | Allocations: 453)
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 6651)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:29:08 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"0"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 0], ["updated_at", "2023-10-11 01:29:08.209390"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 0.8ms | Allocations: 452)
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 6656)
+
+
+Started PATCH "/projects/2/complete" for ::1 at 2023-10-11 10:29:09 +0900
+Processing by ProjectsController#complete as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:62:in `complete'
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."id" != ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "test-pro"], ["id", 2], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:62:in `complete'
+  [1m[36mProject Update (0.3ms)[0m  [1m[33mUPDATE "projects" SET "updated_at" = ?, "completed" = ? WHERE "projects"."id" = ?[0m  [["updated_at", "2023-10-11 01:29:09.754803"], ["completed", 1], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:62:in `complete'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:62:in `complete'
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 20ms (ActiveRecord: 2.3ms | Allocations: 5731)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 10:29:09 +0900
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 0.7ms | Allocations: 449)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 1.1ms | Allocations: 747)
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 5.6ms | Allocations: 3516)
+  Rendered projects/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3595)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 6189)
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 8939)
+
+
+Started GET "/projects/2/edit" for ::1 at 2023-10-11 10:29:16 +0900
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 3.1ms | Allocations: 1228)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1398)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3963)
+Completed 200 OK in 20ms (Views: 8.6ms | ActiveRecord: 0.7ms | Allocations: 6743)
+
+
+Started PATCH "/projects/2" for ::1 at 2023-10-11 10:29:21 +0900
+Processing by ProjectsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"name"=>"test-pro", "description"=>"description", "due_on"=>"2023-10-11"}, "commit"=>"Update Project", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:41:in `block in update'
+  [1m[36mProject Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "projects" WHERE "projects"."name" = ? AND "projects"."id" != ? AND "projects"."user_id" = ? LIMIT ?[0m  [["name", "test-pro"], ["id", 2], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:41:in `block in update'
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 17ms (ActiveRecord: 1.1ms | Allocations: 5054)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-11 10:29:21 +0900
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 0.8ms | Allocations: 449)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 1.2ms | Allocations: 747)
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 5.6ms | Allocations: 3514)
+  Rendered projects/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3593)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 6166)
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 0.5ms | Allocations: 8914)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:29:24 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"1"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 1], ["updated_at", "2023-10-11 01:29:24.408414"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.0ms | Allocations: 453)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 6660)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-11 10:29:25 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"0"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.4ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 0], ["updated_at", "2023-10-11 01:29:25.060110"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.0ms | Allocations: 452)
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 6646)
+
+
