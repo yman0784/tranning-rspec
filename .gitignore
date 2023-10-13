@@ -21,7 +21,6 @@ bundle
 .bundle
 specs.out
 spec/examples.txt
-specs.out
 
 # Ignore uploaded files in development.
 /storage/*
@@ -29,3 +28,5 @@ specs.out
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+
+specs.out
