@@ -966,3 +966,156 @@ Processing by ProjectsController#show as HTML
 Completed 200 OK in 21ms (Views: 10.2ms | ActiveRecord: 0.7ms | Allocations: 8945)
 
 
+Started GET "/" for ::1 at 2023-10-16 10:23:55 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 510)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 436)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 296.3ms | Allocations: 90479)
+Completed 200 OK in 310ms (Views: 298.8ms | ActiveRecord: 0.0ms | Allocations: 95374)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-10-16 10:23:59 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 660)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3574)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 6220)
+Completed 200 OK in 36ms (Views: 15.1ms | ActiveRecord: 1.0ms | Allocations: 16916)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-10-16 10:24:06 +0900
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+[ActiveJob] Enqueued GeocodeUserJob (Job ID: c380086b-1210-4762-ad04-89109f2071eb) to Async(default) with arguments: #<GlobalID:0x0000000112c4e588 @uri=#<URI::GID gid://projects/User/3>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 2], ["current_sign_in_at", "2023-10-16 01:24:06.913117"], ["updated_at", "2023-10-16 01:24:06.913443"], ["id", 3]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 483ms (ActiveRecord: 3.9ms | Allocations: 10777)
+
+
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb] Performing GeocodeUserJob (Job ID: c380086b-1210-4762-ad04-89109f2071eb) from Async(default) enqueued at 2023-10-16T01:24:06Z with arguments: #<GlobalID:0x0000000112ee6e58 @uri=#<URI::GID gid://projects/User/3>>
+Started GET "/" for ::1 at 2023-10-16 10:24:06 +0900
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   ↳ app/models/user.rb:23:in `block in <class:User>'
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "location" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-10-16 01:24:06.937657"], ["location", ", , "], ["id", 3]]
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   ↳ app/models/user.rb:23:in `block in <class:User>'
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb]   ↳ app/models/user.rb:23:in `block in <class:User>'
+[ActiveJob] [GeocodeUserJob] [c380086b-1210-4762-ad04-89109f2071eb] Performed GeocodeUserJob (Job ID: c380086b-1210-4762-ad04-89109f2071eb) from Async(default) in 12.28ms
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Processing by ProjectsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/projects/index.html.erb:11
+  Rendered projects/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 6119)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 204)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 8913)
+Completed 200 OK in 48ms (Views: 32.7ms | ActiveRecord: 0.7ms | Allocations: 12749)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-16 10:24:15 +0900
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 1.7ms | Allocations: 782)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 3.9ms | Allocations: 1405)
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 25)
+  Rendered projects/_project.html.erb (Duration: 30.9ms | Allocations: 13612)
+  Rendered projects/show.html.erb within layouts/application (Duration: 33.2ms | Allocations: 14008)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 16577)
+Completed 200 OK in 53ms (Views: 34.5ms | ActiveRecord: 3.0ms | Allocations: 21301)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-16 10:24:28 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"1"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.3ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 1], ["updated_at", "2023-10-16 01:24:28.298995"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.0ms | Allocations: 531)
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 9136)
+
+
+Started PATCH "/projects/2/tasks/1/toggle" for ::1 at 2023-10-16 10:24:29 +0900
+Processing by TasksController#toggle as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"completed"=>"0"}, "project_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_project'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:73:in `set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTask Update (0.5ms)[0m  [1m[33mUPDATE "tasks" SET "completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["completed", 0], ["updated_at", "2023-10-16 01:24:29.226511"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:65:in `toggle'
+  Rendered tasks/_completed.html.erb (Duration: 1.0ms | Allocations: 453)
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 6674)
+
+
+Started GET "/projects/2" for ::1 at 2023-10-16 10:36:49 +0900
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:73:in `set_project'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `project_owner?'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:52
+  Rendered tasks/_completed.html.erb (Duration: 5.1ms | Allocations: 449)
+  Rendered collection of tasks/_task.html.erb [1 times] (Duration: 5.8ms | Allocations: 747)
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = ?[0m  [["project_id", 2]]
+  ↳ app/views/projects/_project.html.erb:82
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered projects/_project.html.erb (Duration: 18.3ms | Allocations: 3570)
+  Rendered projects/show.html.erb within layouts/application (Duration: 18.7ms | Allocations: 3646)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 181)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 6211)
+Completed 200 OK in 50ms (Views: 26.2ms | ActiveRecord: 3.1ms | Allocations: 9264)
+
+
